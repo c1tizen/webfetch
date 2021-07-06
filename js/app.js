@@ -9,7 +9,7 @@ console.log(os[0]);
 jsOs.insertAdjacentHTML("beforebegin",os[0]);
 
 // BROWSER
-const browser = ""
+var browser = ""
 uaString = uaString.toLowerCase();
 console.log(uaString)
 if (uaString.includes("edg")) {
