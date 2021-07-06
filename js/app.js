@@ -13,22 +13,22 @@ var browser = ""
 uaString = uaString.toLowerCase();
 console.log(uaString)
 if (uaString.indexOf("trident") !== -1) {
-    jsBr.insertAdjacentHTML("beforebegin","Internet Explorer browser");
+    jsBr.insertAdjacentHTML("beforebegin","Internet Explorer");
     browser = "Internet Explorer";
 } else if (uaString.includes("edg")) {
-    jsBr.insertAdjacentHTML("beforebegin","Edge browser");
+    jsBr.insertAdjacentHTML("beforebegin","Edge");
     browser = "Edge";
 } else if (uaString.includes("opr")) {
-    jsBr.insertAdjacentHTML("beforebegin","Opera browser");
+    jsBr.insertAdjacentHTML("beforebegin","Opera");
     browser = "Opera";
 } else if (uaString.includes("safari") && (uaString.includes("opr") == false && uaString.includes("edg") == false && uaString.includes("chrome") == false)) {
-    jsBr.insertAdjacentHTML("beforebegin","Safari browser");
+    jsBr.insertAdjacentHTML("beforebegin","Safari");
     browser = "Safari";
 }  else if (uaString.includes("chrome")) {
-    jsBr.insertAdjacentHTML("beforebegin","Chrome browser");
+    jsBr.insertAdjacentHTML("beforebegin","Chrome");
     browser = "Chrome";
 } else if (uaString.includes("firefox")) {
-    jsBr.insertAdjacentHTML("beforebegin","Firefox browser");
+    jsBr.insertAdjacentHTML("beforebegin","Firefox");
     browser = "Firefox";
 }
 console.log(browser+" <----")
