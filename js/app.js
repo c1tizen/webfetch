@@ -17,6 +17,7 @@ jsBr.insertAdjacentHTML("beforebegin",br);
 // SHORT OS
 var htmlOs = "<span class='highlight'>" + tempBr[tempBr.length - 5] + "</span>"
 shortOs.insertAdjacentHTML("beforebegin", htmlOs);
-
-
 console.log(tempBr);
+
+// SCREEN SIZE
+window.screen.height;
