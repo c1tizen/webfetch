@@ -12,26 +12,26 @@ jsOs.insertAdjacentHTML("beforebegin",os[0]);
 var browser = ""
 uaString = uaString.toLowerCase();
 console.log(uaString)
-if (uaString.includes("edg")) {
+if (uaString.indexOf("trident") !== -1) {
+    jsBr.insertAdjacentHTML("beforebegin","Internet Explorer browser");
+    browser = "Internet Explorer";
+} else if (uaString.includes("edg")) {
     jsBr.insertAdjacentHTML("beforebegin","Edge browser");
     browser = "Edge";
 } else if (uaString.includes("opr")) {
     jsBr.insertAdjacentHTML("beforebegin","Opera browser");
     browser = "Opera";
-} else if (uaString.includes("safari") || uaString.includes("opr") === false || uaString.includes("edg") === false) {
+} else if (uaString.includes("safari") && (uaString.includes("opr") == false && uaString.includes("edg") == false && uaString.includes("chrome") == false)) {
     jsBr.insertAdjacentHTML("beforebegin","Safari browser");
     browser = "Safari";
-} else if (uaString.includes("trident")) {
-    jsBr.insertAdjacentHTML("beforebegin","Internet Explorer browser");
-    browser = "Internet Explorer";
-} else if (uaString.includes("chrome")) {
+}  else if (uaString.includes("chrome")) {
     jsBr.insertAdjacentHTML("beforebegin","Chrome browser");
     browser = "Chrome";
 } else if (uaString.includes("firefox")) {
     jsBr.insertAdjacentHTML("beforebegin","Firefox browser");
     browser = "Firefox";
 }
-console.log(browser+"<----")
+console.log(browser+" <----")
 var tempBr = tempSplit[1].split(" ");
 
 
@@ -44,5 +44,4 @@ console.log(tempBr);
 window.screen.height;
 
 // ASCII PORT
-console.log(br)
 //asciiPort.attr("src",window.location.hostname+"/"+browser)
