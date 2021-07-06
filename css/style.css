@@ -19,7 +19,11 @@ body {
 .nav {
     width: 100%;
     font-size: 24pt;
+    display: flex;
+    flex-direction: row;
 }
+
+
 
 .nav p {
     margin: 20px;
