@@ -48,7 +48,16 @@ console.log(tempBr);
 
 // SCREEN SIZE
 var whOut = document.getElementById("resolution");
-whOut.insertAdjacentHTML("beforebegin", window.screen.height + " x " + window.screen.width);
+function isRetina(){
+    return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+}
+if (isRetina()) {
+    whOut.insertAdjacentHTML("beforebegin", window.screen.height*2 + " x " + window.screen.width*2);
+} else {
+    whOut.insertAdjacentHTML("beforebegin", window.screen.height + " x " + window.screen.width);
+}
+
+
 
 // ASCII PORT
 //asciiPort.attr("src",window.location.hostname+"/"+browser)
