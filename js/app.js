@@ -17,22 +17,22 @@ console.log(uaString);
 if (uaString.indexOf("trident") !== -1) {
     jsBr.insertAdjacentHTML("beforebegin","Internet Explorer");
     browser = "Internet Explorer";
-} else if (uaString.includes("navigator")) {
+} else if (uaString.indexOf("navigator") !== -1) {
     jsBr.insertAdjacentHTML("beforebegin","Netscape Navigator");
     browser = "Netscape-Navigator";
-} else if (uaString.includes("edg")) {
+} else if (uaString.indexOf("edg") !== -1) {
     jsBr.insertAdjacentHTML("beforebegin","Edge");
     browser = "Edge";
-} else if (uaString.includes("opr")) {
+} else if (uaString.indexOf("opr") !== -1) {
     jsBr.insertAdjacentHTML("beforebegin","Opera");
     browser = "Opera";
-} else if (uaString.includes("safari") && (uaString.includes("opr") == false && uaString.includes("edg") == false && uaString.includes("chrome") == false)) {
+} else if (uaString.indexOf("safari") !== -1 && (uaString.indexOf("opr") == -1 && uaString.indexOf("edg") == -1 && uaString.indexOf("chrome") == -1)) {
     jsBr.insertAdjacentHTML("beforebegin","Safari");
     browser = "Safari";
-}  else if (uaString.includes("chrome")) {
+}  else if (uaString.indexOf("chrome") !== -1) {
     jsBr.insertAdjacentHTML("beforebegin","Chrome");
     browser = "Chrome";
-} else if (uaString.includes("firefox")) {
+} else if (uaString.indexOf("firefox") !== -1) {
     jsBr.insertAdjacentHTML("beforebegin","Firefox");
     browser = "Firefox";
 }
