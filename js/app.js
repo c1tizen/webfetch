@@ -7,6 +7,8 @@ var tempSplit = uaString.split("(");
 var os = tempSplit[1].split(";");
 if (os[0] == "X11") {
     os = os[1] + " Linux X11";
+} else {
+    os = os[0];
 }
 //console.log(os[0]);
 var jsOs = document.getElementById("jsOs");
