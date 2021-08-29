@@ -5,8 +5,8 @@ var uaString = navigator.userAgent.toString();
 var tempSplit = uaString.split("(");
 //console.log(tempSplit);
 var os = tempSplit[1].split(";");
-if (os == "X11") {
-    os = "UNIX X11";
+if (os[0] == "X11") {
+    os = os[1] + " Linux X11";
 }
 //console.log(os[0]);
 var jsOs = document.getElementById("jsOs");
