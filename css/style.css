@@ -96,9 +96,11 @@ body *::selection, body *::-moz-selection {
 }
 
 .color-palette {
+    display: inline-block;
+}
+
+.color-palette img {
     width: 6em;
-    display: flex;
-    flex-direction: column;
 }
 
 @media only screen and (max-width: 1096px) {
