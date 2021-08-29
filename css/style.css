@@ -100,7 +100,7 @@ body *::selection, body *::-moz-selection {
 }
 
 .color-palette img {
-    width: 6em;
+    width: 7em;
 }
 
 @media only screen and (max-width: 1096px) {
