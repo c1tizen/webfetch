@@ -5,6 +5,9 @@ var uaString = navigator.userAgent.toString();
 var tempSplit = uaString.split("(");
 //console.log(tempSplit);
 var os = tempSplit[1].split(";");
+if (os == "X11") {
+    os = "UNIX X11";
+}
 //console.log(os[0]);
 var jsOs = document.getElementById("jsOs");
 jsOs.insertAdjacentHTML("beforebegin",os[0]);

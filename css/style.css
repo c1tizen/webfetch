@@ -12,7 +12,7 @@ body {
     border: none;
     border-radius: 10px;
     width: 70%;
-    height: 70vh;
+    height: 1em;
     min-height: 650px;
     max-height: 800px;
     min-width: 1050px;
@@ -108,11 +108,19 @@ body *::selection, body *::-moz-selection {
     .specs {
         align-items: center;
     }
-    .terminal pre {
-        margin-bottom: 0px;
+    .display {
+        width: 95%;
+        height: 70vh;
+        min-height: 1200px;
+        max-height: 9000px;
+        min-width: 320px;
+        max-width: 900px;
     }
-    .ascii {
-        height: auto;
+    .asciiParent {
+        width: auto;
+    }
+    html body div.display div.terminal div.asciiParent pre#asciiPortPre code span {
+        display: inline-block;
     }
 }
 
