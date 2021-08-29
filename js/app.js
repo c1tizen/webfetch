@@ -12,7 +12,7 @@ if (os[0] == "X11") {
 }
 //console.log(os[0]);
 var jsOs = document.getElementById("jsOs");
-jsOs.insertAdjacentHTML("beforebegin",os[0]);
+jsOs.insertAdjacentHTML("beforebegin",os);
 
 // BROWSER
 var root = document.querySelector(':root');
