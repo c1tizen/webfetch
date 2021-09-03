@@ -74,8 +74,18 @@ var canvas = document.createElement("canvas");
 var webgl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 var debugInfo = webgl.getExtension("webgl_debug_renderer_info");
 var gpu = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-gpu.split("(");
-var gpuOut = gpu[]
+var gpuJs = document.getElementById("gpuJs");
+if (gpu.indexOf("(") !== -1) {
+    gpu.split("(");
+    gpu = gpu[1];
+    gpu.split(")");
+    var gpuOut = gpu[1];
+    gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
+} else {
+    gpuJs.insertAdjacentHTML("beforebegin", gpu);
+}
+
+
 
 var fdev = `
 <html><code><span class="ascii" style="color: white; background: black;
