@@ -127,6 +127,11 @@ if (result.device.vendor !== undefined || result.device.vendor !== null) {
     var deviceHTML = '<p class="line"><span class="highlight">Device vendor: </span>'+result.device.vendor+'<span id="gpuJs"></span></p>'
 }
 
+// CPU ARCHITECTURE
+if (result.cpu.architecture !== undefined || result.cpu.architecture !== null) {
+    var deviceHTML = '<p class="line"><span class="highlight">CPU architecture: </span>'+result.cpu.architecture+'<span id="cpuarchJs"></span></p>'
+}
+
 var fdev = `
 <html><code><span class="ascii" style="color: white; background: black;
 display:inline-block;
