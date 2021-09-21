@@ -75,6 +75,10 @@ var webgl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl"
 var debugInfo = webgl.getExtension("webgl_debug_renderer_info");
 var gpu = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
 var gpuJs = document.getElementById("gpuJs");
+/*
+vacsinou "ANGLE (Intel, Intel(R) HD graphics)"
+treba detekovat slovo na zaciatku a potom zatvorku prec
+*/
 if (gpu.indexOf("(") !== -1) {
     gpu.split("(");
     gpu = gpu[1];
