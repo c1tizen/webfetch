@@ -80,10 +80,11 @@ vacsinou "ANGLE (Intel, Intel(R) HD graphics)"
 treba detekovat slovo na zaciatku a potom zatvorku prec
 */
 if (gpu.indexOf("(") !== -1) {
-    gpu.split("(");
-    gpu = gpu[1];
-    gpu.split(")");
-    var gpuOut = gpu[1];
+    gpu.slice(1,-1);
+    // gpu.split("(");
+    // gpu = gpu[1];
+    // gpu.split(")");
+    var gpuOut = gpu;
     gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
 } else {
     gpuJs.insertAdjacentHTML("beforebegin", gpu);
