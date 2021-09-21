@@ -115,21 +115,32 @@ gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
 
 // ENGINE
 //var jsEg = document.getElementById("shortOs");
-if (result.engine.version === undefined || result.engine.version === null) {
+if (result.engine.version === undefined) {
     var engineOut = result.engine.name
 } else {
     var engineOut = result.engine.name+" "+result.engine.version
 }
 jsEg.insertAdjacentHTML("beforebegin", engineOut);
 
+
+// CHANGE INSERTSô"""""""""""""""""""
+
 // DEVICE VENDOR
-if (result.device.vendor !== undefined || result.device.vendor !== null) {
+if (result.device.vendor !== undefined) {
     var deviceHTML = '<p class="line"><span class="highlight">Device vendor: </span>'+result.device.vendor+'<span id="gpuJs"></span></p>'
+    jsEg.insertAdjacentHTML("beforebegin", deviceHTML);
 }
 
 // CPU ARCHITECTURE
-if (result.cpu.architecture !== undefined || result.cpu.architecture !== null) {
-    var deviceHTML = '<p class="line"><span class="highlight">CPU architecture: </span>'+result.cpu.architecture+'<span id="cpuarchJs"></span></p>'
+if (result.cpu.architecture !== undefined) {
+    var cpuHTML = '<p class="line"><span class="highlight">CPU architecture: </span>'+result.cpu.architecture+'<span id="cpuarchJs"></span></p>'
+    jsEg.insertAdjacentHTML("beforebegin", cpuHTML);
+}
+
+// RAM detect - chrome only?
+if (navigator.deviceMemory !== undefined) {
+    var ramHTML = '<p class="line"><span class="highlight">RAM: </span>'+navigator.deviceMemory+'GB<span id="gpuJs"></span></p>'
+    gpuJs.insertAdjacentHTML("beforebegin", ramHTML);
 }
 
 var fdev = `
