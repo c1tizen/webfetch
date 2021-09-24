@@ -20,16 +20,7 @@ var result = parser.getResult();
 
 var uaString = navigator.userAgent.toString();
 
-// // OPERATING SYSTEM
-// var tempSplit = uaString.split("(");
-// //console.log(tempSplit);
-// var os = tempSplit[1].split(";");
-// if (os[0] == "X11") {
-//     os = os[1] + " Linux X11";
-// } else {
-//     os = os[0];
-// }
-//console.log(os[0]);
+// OPERATING SYSTEM
 var os = result.os.name+" "+result.os.version;
 console.log(os);
 var jsOs = document.getElementById("jsOs");
@@ -40,36 +31,6 @@ var root = document.querySelector(':root');
 var browser = result.browser.name+" "+result.browser.version;
 var jsBr = document.getElementById("jsBr");
 jsBr.insertAdjacentHTML("beforebegin",browser);
-// uaString = uaString.toLowerCase();
-// //console.log(uaString);
-// if (uaString.indexOf("trident") !== -1) {
-//     jsBr.insertAdjacentHTML("beforebegin","Internet Explorer");
-//     browser = "Internet Explorer";
-// } else if (uaString.indexOf("navigator") !== -1) {
-//     alert("netscape detected");
-//     jsBr.innerText("Netscape Navigator");
-//     jsBr.insertAdjacentHTML("beforebegin","Netscape Navigator");
-//     browser = "Netscape-Navigator";
-// } else if (uaString.indexOf("edg") !== -1) {
-//     jsBr.insertAdjacentHTML("beforebegin","Edge");
-//     browser = "Edge";
-// } else if (uaString.indexOf("opr") !== -1) {
-//     jsBr.insertAdjacentHTML("beforebegin","Opera");
-//     browser = "Opera";
-// } else if (uaString.indexOf("safari") !== -1 && (uaString.indexOf("opr") == -1 && uaString.indexOf("edg") == -1 && uaString.indexOf("chrome") == -1)) {
-//     jsBr.insertAdjacentHTML("beforebegin","Safari");
-//     browser = "Safari";
-// }  else if (uaString.indexOf("chrome") !== -1) {
-//     jsBr.insertAdjacentHTML("beforebegin","Chrome");
-//     browser = "Chrome";
-// } else if (uaString.indexOf("firefox") !== -1) {
-//     jsBr.insertAdjacentHTML("beforebegin","Firefox");
-//     browser = "Firefox";
-//     root.style.setProperty('--highlight', '#43A3EC');
-// }
-//console.log(browser+" <----");
-//var tempBr = tempSplit[1].split(" ");
-
 
 // SHORT BROWSER
 var htmlOs = "<span class='highlight'>" + result.browser.name.toLowerCase() + "</span>";
@@ -78,54 +39,22 @@ shortOs.insertAdjacentHTML("beforebegin", htmlOs);
 
 // SCREEN SIZE
 var whOut = document.getElementById("resolution")
-/*
-function isRetina(){
-    return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
-}
-*/
 var widthNoFloat = Math.trunc(window.screen.width * window.devicePixelRatio);
 var heightNoFloat = Math.trunc(window.screen.height * window.devicePixelRatio);
 whOut.insertAdjacentHTML("beforebegin", widthNoFloat + " x " + heightNoFloat);
-/*
-if (isRetina()) {
-    whOut.insertAdjacentHTML("beforebegin", window.screen.width*2 + " x " + window.screen.height*2);
-};
-*/
+if (result.gpu.vendor !== undefined) {
+    var gpuOut = result.gpu.vendor+" "+result.gpu.model
+    gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
+}
 
-// GPU
-// var canvas = document.createElement("canvas");
-// var webgl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-// var debugInfo = webgl.getExtension("webgl_debug_renderer_info");
-// var gpu = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-// var gpuJs = document.getElementById("gpuJs");
-/*
-vacsinou "ANGLE (Intel, Intel(R) HD graphics)"
-treba detekovat slovo na zaciatku a potom zatvorku prec
-*/
-// if (gpu.indexOf("(") !== -1) {
-//     gpu.slice(1,-1);
-//     // gpu.split("(");
-//     // gpu = gpu[1];
-//     // gpu.split(")");
-//     var gpuOut = gpu;
-//     gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
-// } else {
-//     gpuJs.insertAdjacentHTML("beforebegin", gpu);
-// }
-var gpuOut = result.gpu.vendor+" "+result.gpu.model
-gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
 
 // ENGINE
-//var jsEg = document.getElementById("shortOs");
 if (result.engine.version === undefined) {
     var engineOut = result.engine.name
 } else {
     var engineOut = result.engine.name+" "+result.engine.version
-}
+} 
 jsEg.insertAdjacentHTML("beforebegin", engineOut);
-
-
-// CHANGE INSERTSô"""""""""""""""""""
 
 // DEVICE VENDOR
 if (result.device.vendor !== undefined) {
@@ -136,7 +65,7 @@ if (result.device.vendor !== undefined) {
 // CPU ARCHITECTURE
 if (result.cpu.architecture !== undefined) {
     var cpuHTML = '<p class="line"><span class="highlight">CPU architecture: </span>'+result.cpu.architecture+'<span id="cpuarchJs"></span></p>'
-    jsEg.insertAdjacentHTML("beforebegin", cpuHTML);
+    jsOs.insertAdjacentHTML("beforebegin", cpuHTML);
 }
 
 // RAM detect - chrome only?
