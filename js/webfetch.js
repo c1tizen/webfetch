@@ -43,8 +43,8 @@ var widthNoFloat = Math.trunc(window.screen.width * window.devicePixelRatio);
 var heightNoFloat = Math.trunc(window.screen.height * window.devicePixelRatio);
 whOut.insertAdjacentHTML("beforebegin", widthNoFloat + " x " + heightNoFloat);
 if (result.gpu.vendor !== undefined) {
-    var gpuOut = result.gpu.vendor+" "+result.gpu.model
-    gpuJs.insertAdjacentHTML("beforebegin", gpuOut);
+    var gpuHTML = '<p class="line"><span class="highlight">GPU: </span><span id="gpuJs">'+result.gpu.vendor+" "+result.gpu.model+'</span></p>'
+    gpuJs.insertAdjacentHTML("beforebegin", gpuHTML);
 }
 
 
