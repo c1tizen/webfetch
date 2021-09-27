@@ -126,10 +126,7 @@ body *::selection, body *::-moz-selection {
     }
 }
 
-#asciiPortPre {
-    margin-top: 0;
-}
-
 .ascii {
-    border: none !important;
+    width: 100%;
+    border: none;
 }

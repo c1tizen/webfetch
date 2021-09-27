@@ -1,5 +1,6 @@
 #  TODO ALL
-- RAM detect detect for Chrome or other browsers
 - Change ASCII by browser
+    - download 128x128 pngs from cdn
+    - setup converter
 - CLI commands
-- GPU proper slicing (detect "ANGLE" for example and remove it)
+- browsers without js notice
