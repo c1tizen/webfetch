@@ -78,7 +78,8 @@ class imgToAscii {
 		pre.style.lineHeight = "6px";
 		pre.style.fontSize = "11px";
 		pre.style.display = "inline-block";
-		document.body.appendChild(pre);
+		var asciiPortPre = document.getElementById("asciiPortPre");
+		asciiPortPre.appendChild(pre);
 		await this.loadImage;
 		pre.innerText = this.string;
 	}
@@ -90,7 +91,8 @@ class imgToAscii {
 		pre.style.fontSize = "11px";
 		pre.style.display = "inline-block";
 		pre.style.backgroundColor = bg;
-		document.body.appendChild(pre);
+		var asciiPortPre = document.getElementById("asciiPortPre");
+		asciiPortPre.appendChild(pre);
 		await this.loadImage;
 		pre.innerHTML = this.stringColor;
 	}
