@@ -1,6 +1,8 @@
 #  TODO ALL
-- Change ASCII by browser
-    - download 128x128 pngs from cdn
-    - setup converter
 - CLI commands
 - browsers without js notice
+
+# MOZNOSTI NA ASCII LOGA
+- nový js ascii engine naprogramovať
+- manualne konvertovať cez stránku (to este v js by sme mali vsetky loga a to by mohlo byt velke)
+- nájsť nový ascii engine
