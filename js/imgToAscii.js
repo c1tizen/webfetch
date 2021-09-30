@@ -99,6 +99,7 @@ border-style:solid;
 border-color:lightgray;
 		*/
 		let pre = document.createElement('pre');
+		pre.id = "asciiPorted";
 		pre.style.fontFamily = "'Inconsolata', Consolas";
 		pre.style.lineHeight = "15px";
 		pre.style.fontWeight = "900";

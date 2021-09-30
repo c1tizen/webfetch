@@ -126,6 +126,21 @@ body *::selection, body *::-moz-selection {
     }
 }
 
+@media only screen and (max-width: 500px) {
+    #asciiPorted {
+        font-size: 9px !important;
+        line-height: 12px !important;
+        letter-spacing: 7.5px !important;
+        font-weight: 900 !important;
+    }
+    .asciiParent {
+        height: auto;
+    }
+    .specs {
+        margin-top: 0px;
+    }
+}
+
 .ascii {
     width: 100%;
     border: none;
