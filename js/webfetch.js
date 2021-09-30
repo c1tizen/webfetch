@@ -75,9 +75,6 @@ if (navigator.deviceMemory !== undefined) {
 }
 
 // ASCII PORT
-
-
-
 /*
 var asciiRef = result.browser.name.toLowerCase()
 var logoCdn = "https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.3.0/"+asciiRef+"/"+asciiRef+"_128x128.png"
@@ -92,3 +89,8 @@ asciiPortPre.innerHTML = victorAscii;
 var asciiRef = result.browser.name.toLowerCase()
 var logoCdn = `https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.3.0/`+asciiRef+`/`+asciiRef+`_128x128.png`
 */
+
+var asciiRef = result.browser.name.toLowerCase()
+var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
+let bbd = new imgToAscii(asciiPath,1,0);
+bbd.displayColor();
