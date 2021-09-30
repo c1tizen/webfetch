@@ -18,7 +18,7 @@
 var parser = new this.UAParser();
 var result = parser.getResult();
 
-var uaString = navigator.userAgent.toString();
+var gpuJs = document.getElementById("gpuJs");
 
 // OPERATING SYSTEM
 var os = result.os.name+" "+result.os.version;
@@ -38,7 +38,7 @@ var shortOs = document.getElementById("shortOs");
 shortOs.insertAdjacentHTML("beforebegin", htmlOs);
 
 // SCREEN SIZE
-var whOut = document.getElementById("resolution")
+var whOut = document.getElementById("resolution");
 var widthNoFloat = Math.trunc(window.screen.width * window.devicePixelRatio);
 var heightNoFloat = Math.trunc(window.screen.height * window.devicePixelRatio);
 whOut.insertAdjacentHTML("beforebegin", widthNoFloat + " x " + heightNoFloat);
@@ -56,6 +56,14 @@ if (result.engine.version === undefined) {
 } 
 jsEg.insertAdjacentHTML("beforebegin", engineOut);
 
+// RAM detect - chrome only?
+
+
+if (navigator.deviceMemory !== undefined) {
+    var ramHTML = '<p class="line"><span class="highlight">RAM: </span>'+navigator.deviceMemory+'GB<span id="gpuJs"></span></p>';
+    gpuJs.insertAdjacentHTML("beforebegin", ramHTML);
+}
+
 // DEVICE VENDOR
 if (result.device.vendor !== undefined) {
     var deviceHTML = '<p class="line"><span class="highlight">Device vendor: </span>'+result.device.vendor+'<span id="gpuJs"></span></p>'
@@ -68,11 +76,7 @@ if (result.cpu.architecture !== undefined) {
     jsOs.insertAdjacentHTML("beforebegin", cpuHTML);
 }
 
-// RAM detect - chrome only?
-if (navigator.deviceMemory !== undefined) {
-    var ramHTML = '<p class="line"><span class="highlight">RAM: </span>'+navigator.deviceMemory+'GB<span id="gpuJs"></span></p>'
-    gpuJs.insertAdjacentHTML("beforebegin", ramHTML);
-}
+
 
 // ASCII PORT
 /*
