@@ -91,7 +91,7 @@ body *::selection, body *::-moz-selection {
     padding: 0px;
 }
 
-.wrapp {
+#wrapp {
     text-align: left;
 }
 

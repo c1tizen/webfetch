@@ -17,12 +17,11 @@
 
 var parser = new this.UAParser();
 var result = parser.getResult();
-
+var asciiJs = document.getElementById("asciiPortPre");
 var gpuJs = document.getElementById("gpuJs");
 
 // OPERATING SYSTEM
 var os = result.os.name+" "+result.os.version;
-console.log(os);
 var jsOs = document.getElementById("jsOs");
 jsOs.insertAdjacentHTML("beforebegin", os);
 
@@ -76,25 +75,34 @@ if (result.cpu.architecture !== undefined) {
     jsOs.insertAdjacentHTML("beforebegin", cpuHTML);
 }
 
-
-
-// ASCII PORT
-/*
-var asciiRef = result.browser.name.toLowerCase()
-var logoCdn = "https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.3.0/"+asciiRef+"/"+asciiRef+"_128x128.png"
-var asciiPort = document.getElementById("asciiPort");
-asciiPort.src = "/browsers/firefox-developer"+".html";
-
-let victorAscii = new imgToAscii(logoCdn);
-eu.displayColor("gray");
-asciiPortPre.innerHTML = victorAscii;
-//+ browser.toLowerCase()*/
-/*
-var asciiRef = result.browser.name.toLowerCase()
-var logoCdn = `https://cdnjs.cloudflare.com/ajax/libs/browser-logos/70.3.0/`+asciiRef+`/`+asciiRef+`_128x128.png`
-*/
-
 var asciiRef = result.browser.name.toLowerCase()
 var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
 let bbd = new imgToAscii(asciiPath,1,0);
 bbd.displayColor();
+
+var inSpec = document.getElementById("inSpec");
+
+// TERMINAL INPUT
+const termIn = document.getElementsByClassName("termPost")[0];
+const telleport = document.getElementsById("wrapp");
+document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        const termOut = termIn.value
+        if (termOut.substring(0,4) == "help") {
+            console.log("help <--")
+            var specDel = document.getElementsById("wrapp")
+            console.log(specDel);
+            telleport.innerHTML = "";
+            termIn.value = "";
+        } else if (termOut.substring(0,5) == "ascii") {
+            asciiRef = termOut.substring(6,termOut.length);
+            var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
+            let bbd = new imgToAscii(asciiPath,1,0);
+            asciiJs.innerHTML = "";
+            bbd.displayColor();
+            termIn.value = "";
+        } else {
+            termIn.value = "";
+        }
+    }
+});
