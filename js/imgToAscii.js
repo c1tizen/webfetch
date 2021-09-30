@@ -28,7 +28,8 @@ class imgToAscii {
 		this.size = ( size <= 0 || size > 1 ? 1 : size) || 1;
 		this.charType = charType || 0;
 		this.alphabet = {
-			0: ["@","%","#","*","+","=","-",":","."," "],
+			// 0: ["@","%","#","*","+","=","-",":","."," "],
+			0: [",","*","#","(","*","/"],
 			1: ["$","@","B","%","8","&","W","M","#","*","o","a","h","k","b","d","p","q","w","m","Z","O",
 					"0","Q","L","C","J","U","Y","X","z","c","v","u","n","x","r","j","f","t","/","\\","|","(",
 					")","1","{","}","[","]","?","-","_","+","~","\<","\>","i","!","l","I",";",":",",","\"","^",
@@ -85,10 +86,24 @@ class imgToAscii {
 	}
 
 	async displayColor(bg){
+		/*
+display:inline-block;
+white-space:pre;
+letter-spacing:0;
+line-height:1.4;
+font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
+font-size:12px;
+
+border-width:1px;
+border-style:solid;
+border-color:lightgray;
+		*/
 		let pre = document.createElement('pre');
-		pre.style.fontFamily = "Courier, monospace";
-		pre.style.lineHeight = "6px";
-		pre.style.fontSize = "11px";
+		pre.style.fontFamily = "Consolas";
+		pre.style.lineHeight = "15px";
+		pre.style.fontWeight = "900";
+		pre.style.letterSpacing = "8px";
+		pre.style.fontSize = "13px";
 		pre.style.display = "inline-block";
 		pre.style.backgroundColor = bg;
 		var asciiPortPre = document.getElementById("asciiPortPre");
