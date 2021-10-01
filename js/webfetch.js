@@ -84,9 +84,10 @@ var inSpec = document.getElementById("inSpec");
 
 // TERMINAL INPUT
 const termIn = document.getElementsByClassName("termPost")[0];
-const telleport = document.getElementsById("wrapp");
+//const telleport = document.getElementsById("wrapp");
 document.addEventListener("keyup", function(event) {
-    if (event.code === 'Enter') {
+    console.log(event.key)
+    if (event.key === "Enter") {
         const termOut = termIn.value
         if (termOut.substring(0,4) == "help") {
             console.log("help <--")
