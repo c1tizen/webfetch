@@ -85,10 +85,10 @@ var inSpec = document.getElementById("inSpec");
 // TERMINAL INPUT
 const termIn = document.getElementsByClassName("termPost")[0];
 //const telleport = document.getElementsById("wrapp");
-document.addEventListener("keyup", function(event) {
-    console.log(event.key)
-    if (event.key === "Enter") {
-        const termOut = termIn.value
+document.addEventListener("keydown", (y) => {
+    console.log(y.key)
+    if (y.key === "Enter") {
+        const termOut = termIn.value.toLowerCase()
         if (termOut.substring(0,4) == "help") {
             console.log("help <--")
             var specDel = document.getElementsById("wrapp")
