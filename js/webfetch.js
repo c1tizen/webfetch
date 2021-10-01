@@ -83,17 +83,18 @@ bbd.displayColor();
 var inSpec = document.getElementById("inSpec");
 
 // TERMINAL INPUT
-const termIn = document.getElementsByClassName("termPost")[0];
-//const telleport = document.getElementsById("wrapp");
+var termIn = document.getElementsByClassName("termPost")[0];
+var telleport = document.getElementsByClassName("specs");
+// needs to use wrapp "!"
+
 document.addEventListener("keydown", (y) => {
-    console.log(y.key)
     if (y.key === "Enter") {
         const termOut = termIn.value.toLowerCase()
         if (termOut.substring(0,4) == "help") {
             console.log("help <--")
-            var specDel = document.getElementsById("wrapp")
+            var specDel = document.getElementsByClassName("specs");
             console.log(specDel);
-            telleport.innerHTML = "";
+            specDel[0].remove();
             termIn.value = "";
         } else if (termOut.substring(0,5) == "ascii") {
             asciiRef = termOut.substring(6,termOut.length);
@@ -101,6 +102,9 @@ document.addEventListener("keydown", (y) => {
             let bbd = new imgToAscii(asciiPath,1,0);
             asciiJs.innerHTML = "";
             bbd.displayColor();
+            termIn.value = "";
+        } else if (termOut.substring(0,8) == "webfetch") {
+            specDel = telleport;
             termIn.value = "";
         } else {
             termIn.value = "";
