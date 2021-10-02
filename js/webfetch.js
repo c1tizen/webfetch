@@ -84,18 +84,22 @@ var inSpec = document.getElementById("inSpec");
 
 // TERMINAL INPUT
 var termIn = document.getElementsByClassName("termPost")[0];
-var telleport = document.getElementsByClassName("specs");
-// needs to use wrapp "!"
-
+var telleport = document.getElementsByClassName("wrapp");
+var helpHTML = `<div class="wrapp">
+            <p class="line"><span class="highlight">help - </span>lists all commands</p>
+            <p class="line"><span class="highlight">ascii [browser] - </span>changes ascii art</p>
+            <p class="line"><span class="highlight">webfetch - </span>runs webfetch
+            </p>
+            </div>`
+var specDel = document.getElementsByClassName("wrapp")
 document.addEventListener("keydown", (y) => {
     if (y.key === "Enter") {
         const termOut = termIn.value.toLowerCase()
         if (termOut.substring(0,4) == "help") {
             console.log("help <--")
-            var specDel = document.getElementsByClassName("specs");
-            console.log(specDel);
             specDel[0].remove();
             termIn.value = "";
+            specDel.insertAdjacentHTML("beforebegin", helpHTML);
         } else if (termOut.substring(0,5) == "ascii") {
             asciiRef = termOut.substring(6,termOut.length);
             var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
