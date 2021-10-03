@@ -103,7 +103,7 @@ body *::selection, body *::-moz-selection {
     width: 7em;
 }
 
-@media only screen and (max-width: 1096px) {
+@media only screen and (max-width: 850px) {
     .terminal {
       flex-direction: column;
     }
@@ -144,4 +144,12 @@ body *::selection, body *::-moz-selection {
 .ascii {
     width: 100%;
     border: none;
+}
+
+.lineBrowser {
+    margin: 0;
+}
+
+.wrapp:focus { 
+    outline: none; 
 }

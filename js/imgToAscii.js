@@ -75,29 +75,21 @@ class imgToAscii {
 	
 	async display(){
 		let pre = document.createElement('pre');
-		pre.style.fontFamily = "Courier, monospace";
-		pre.style.lineHeight = "6px";
-		pre.style.fontSize = "11px";
+		pre.id = "asciiPorted";
+		pre.style.fontFamily = "'Inconsolata', Consolas";
+		pre.style.lineHeight = "15px";
+		pre.style.fontWeight = "900";
+		pre.style.letterSpacing = "7.5px";
+		pre.style.fontSize = "14px";
 		pre.style.display = "inline-block";
+		pre.style.backgroundColor = bg;
 		var asciiPortPre = document.getElementById("asciiPortPre");
 		asciiPortPre.appendChild(pre);
 		await this.loadImage;
-		pre.innerText = this.string;
+		pre.innerHTML = this.stringColor;
 	}
 
 	async displayColor(bg){
-		/*
-display:inline-block;
-white-space:pre;
-letter-spacing:0;
-line-height:1.4;
-font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
-font-size:12px;
-
-border-width:1px;
-border-style:solid;
-border-color:lightgray;
-		*/
 		let pre = document.createElement('pre');
 		pre.id = "asciiPorted";
 		pre.style.fontFamily = "'Inconsolata', Consolas";

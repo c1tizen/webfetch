@@ -8,7 +8,6 @@
         - help
         - webfetch - reload main
         - about
-        - 
 
 # MOZNOSTI NA ASCII LOGA
 - nový js ascii engine naprogramovať
