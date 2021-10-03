@@ -120,6 +120,14 @@ document.addEventListener("keydown", (y) => {
             document.querySelector(".termPost").removeAttribute("autofocus");
             browserList()
             document.querySelector(".wrapp").focus();
+        } else if (termOut.substring(0,7) == "pallete") {
+            webfetchRe();
+            palleteSplit = termOut.split(" ");
+            if (palletes.includes(palleteSplit[1])) {
+                document.querySelector("#palleteSq").setAttribute("src","./palletes/"+palleteSplit[1]+".png")
+                var telleport = document.querySelector(".wrapp").innerHTML; 
+            }
+            termIn.value = "";
         } else {
             termIn.value = "";
         }
@@ -191,6 +199,7 @@ var helpHTML =
     <p class="line"><span class="highlight">webfetch - </span>runs webfetch</p>
     <p class="line"><span class="highlight">ascii [browser_name] - </span>changes ascii art</p>
     <p class="line"><span class="highlight">browsers - </span>lists ascii supported browsers</p>
+    <p class="line"><span class="highlight">pallete [dark,light,pale,pastel,pure] - </span>changes color pallete</p>
     <p class="line"><span class="highlight">tech - </span>lists all used projects/dependencies</p>
     <p class="line"><span class="highlight">about - </span>shows information about this project</p>
     <p class="line"><span class="highlight">help - </span>lists all commands</p>
@@ -427,3 +436,4 @@ let browsers = [
     "<p class='lineBrowser'>yandex-old</p>",
     "<p class='lineBrowser'>yandex</p>"
 ]
+let palletes = ["dark","light","pale","pastel","pure"];
