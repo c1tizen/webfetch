@@ -1,4 +1,4 @@
-<h3 align="center"><img src="https://files.catbox.moe/ss4ene.png" alt="logo" height="100px"></h3>
+<h3 align="center"><img src="https://files.catbox.moe/a581um.png" alt="logo" height="100px"></h3>
 <p align="center">A browser information tool written in JavaScript</p>
 
 <p align="center">
