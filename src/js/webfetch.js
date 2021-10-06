@@ -141,6 +141,7 @@ function webfetchRe() {
     document.querySelector(".termPost").focus();
     setTimeout(function() {
         document.querySelector(".termPost").value = "";
+        document.removeEventListener("keydown", lister);
     }, 0.1);
 }
 
@@ -156,7 +157,6 @@ function browserList() {
     document.querySelector(".specs").innerHTML += "</div>"
     document.addEventListener("keydown", (lister) => {
         if (lister.key === "q" || lister.key === "Q") {
-            document.removeEventListener("keydown", lister);
             webfetchRe();
         } else if (lister.key === "b" || lister.key === "B") {
             if (listPage > 20) {
