@@ -7,7 +7,7 @@
 
 <img src="https://files.catbox.moe/34r90m.png" alt="webfetch" align="right" height="250px">
 
-### \[[Project Website](https://webfetch.pages.dev/)\]
+### \[[Project Website](https://webfetch.js.org/)\]
 
 Webfetch is a browser information tool written in `JavaScript`. Webfetch is used to display information about your browser and it's host system, such as the browser, engine, OS etc.
 
