@@ -1,13 +1,12 @@
-/*  WebFetch Project
+/*  
+    WebFetch Project
     Made by: c1tizen
-    Thanks to: Webster 
+    Collaborator: Webster 
     2021
-
-    Using UAParser for detection of: browser, device, engine, os, cpu
-    Other parameters are detected by WebFetch.
 */
 
-/* UAParser.js v0.7.28
+/* 
+UAParser.js v0.7.28
    Copyright © 2012-2021 Faisal Salman <f@faisalman.com>
    MIT License */
 
@@ -98,7 +97,11 @@ document.addEventListener("keydown", (y) => {
             document.querySelector(".specs").innerHTML = helpHTML;
         } else if (termOut.substring(0,5) == "ascii") {
             asciiRef = termOut.substring(6,termOut.length);
-            var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
+            if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === false) {
+                var asciiPath = "browsers/webfetch_64x64.jpg"
+            } else {
+                var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
+            }
             let bbd = new imgToAscii(asciiPath,1,0);
             asciiJs.innerHTML = "";
             bbd.displayColor();
@@ -134,6 +137,8 @@ document.addEventListener("keydown", (y) => {
     }
 });
 
+let inputFocus = true
+
 function webfetchRe() {
     document.querySelector(".specs").innerHTML = "<div class='wrapp'></div>";
     document.querySelector(".wrapp").innerHTML = telleport;
@@ -156,31 +161,32 @@ function browserList() {
     document.querySelector(".specs").innerHTML += "<span class='highlight'>[q] - Quit, [b] - Back, [n] - Next</span>";
     document.querySelector(".specs").innerHTML += "</div>"
     document.addEventListener("keydown", (lister) => {
-        if (lister.key === "q" || lister.key === "Q") {
-            webfetchRe();
-        } else if (lister.key === "b" || lister.key === "B") {
-            if (listPage > 20) {
-                console.log(listPage)
-                document.querySelector(".browser-view").innerHTML = "";
-                for (var b = 0; b < 20; b++) {
-                    document.querySelector(".browser-view").innerHTML += browsers[listPage-40+b];
-                }
-                listPage -= 20
-            }
-        } else if (lister.key === "n" || lister.key === "N") {
-            if (listPage < browsers.length) {
-                document.querySelector(".browser-view").innerHTML = "";
-                for (var b = 0; b < 20; b++) {
-                    if (browsers[listPage+b] !== undefined) {
-                        document.querySelector(".browser-view").innerHTML += browsers[listPage+b];
-                    } else {
-                        document.querySelector(".browser-view").innerHTML += "<p style='opacity: 0' class='lineBrowser'>-</p>";
+        if (document.querySelector(".termPost") !== document.activeElement) {
+            if (lister.key === "q" || lister.key === "Q") {
+                webfetchRe();
+            } else if (lister.key === "b" || lister.key === "B") {
+                if (listPage > 20) {
+                    console.log(listPage)
+                    document.querySelector(".browser-view").innerHTML = "";
+                    for (var b = 0; b < 20; b++) {
+                        document.querySelector(".browser-view").innerHTML += browsers[listPage-40+b];
                     }
-                    
+                    listPage -= 20
                 }
-                listPage += 20
-            }
-        }
+            } else if (lister.key === "n" || lister.key === "N") {
+                if (listPage < browsers.length) {
+                    document.querySelector(".browser-view").innerHTML = "";
+                    for (var b = 0; b < 20; b++) {
+                        if (browsers[listPage+b] !== undefined) {
+                            document.querySelector(".browser-view").innerHTML += browsers[listPage+b];
+                        } else {
+                            document.querySelector(".browser-view").innerHTML += "<p style='opacity: 0' class='lineBrowser'>-</p>";
+                        }
+                        
+                    }
+                    listPage += 20
+                }
+            }}
     })
 };  
 var techHTML = 
@@ -211,7 +217,7 @@ var aboutHTML =
     <p class="line"><span class="highlight">Made by: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen">c1tizen</a></p>
     <p class="line"><span class="highlight">Collaborator: </span>Webster</p>
     <p class="line"><span class="highlight">GitHub repository: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch">c1tizen/webfetch</a></p>
-    <p class="line"><span class="highlight">License: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch/blob/main/LICENSE">MIT License</a></p>
+    <p class="line"><span class="highlight">License: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch/blob/main/LICENSE">GNU General Public License v3.0</a></p>
     <p class="line">2021 - <span id="year"></span></p>
     type "webfetch" for main screen
 </div>`
@@ -418,6 +424,7 @@ let browsers = [
     "<p class='lineBrowser'>vivaldi-snapshot-old</p>",
     "<p class='lineBrowser'>vivaldi-snapshot</p>",
     "<p class='lineBrowser'>vivaldi</p>",
+    "<p class='lineBrowser'>webfetch</p>",
     "<p class='lineBrowser'>webkit-nightly_1-7</p>",
     "<p class='lineBrowser'>webkit-nightly_10-13</p>",
     "<p class='lineBrowser'>webkit-nightly</p>",
