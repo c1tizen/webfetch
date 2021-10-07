@@ -296,7 +296,7 @@ if (result.cpu.architecture !== undefined) {
 var asciiRef = result.browser.name.toLowerCase()
 console.log("<p class='lineBrowser'>"+asciiRef+"</p>")
 if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === true) {
-    var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
+    var asciiPath = "browsers/" + asciiRef + ".jpg"
 } else {
     var asciiPath = "browsers/webfetch_64x64.jpg"
 }
@@ -325,9 +325,9 @@ document.addEventListener("keydown", (y) => {
         } else if (termOut.substring(0,5) == "ascii") {
             asciiRef = termOut.substring(6,termOut.length);
             if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === false) {
-                var asciiPath = "browsers/webfetch_64x64.jpg"
+                var asciiPath = "browsers/webfetch.jpg"
             } else {
-                var asciiPath = "browsers/" + asciiRef + "_64x64.jpg"
+                var asciiPath = "browsers/" + asciiRef + ".jpg"
             }
             let bbd = new imgToAscii(asciiPath,1,0);
             asciiJs.innerHTML = "";
