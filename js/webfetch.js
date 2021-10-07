@@ -275,12 +275,6 @@ if (result.engine.version === undefined) {
 } 
 jsEg.insertAdjacentHTML("beforebegin", engineOut);
 
-// RAM detect - chrome only?
-if (navigator.deviceMemory !== undefined) {
-    var ramHTML = '<p class="line"><span class="highlight">RAM: </span>'+navigator.deviceMemory+'GB<span id="gpuJs"></span></p>';
-    gpuJs.insertAdjacentHTML("beforebegin", ramHTML);
-}
-
 // DEVICE VENDOR
 if (result.device.vendor !== undefined) {
     var deviceHTML = '<p class="line"><span class="highlight">Device vendor: </span>'+result.device.vendor+'<span id="gpuJs"></span></p>'
