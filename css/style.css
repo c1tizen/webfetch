@@ -153,3 +153,13 @@ body *::selection, body *::-moz-selection {
 .wrapp:focus { 
     outline: none; 
 }
+
+#yellowWF {
+    background-color: rgb(255, 216, 0);
+    padding: 4px;
+    font-weight: 900;
+}
+
+#blackText {
+    color: rgb(0, 0, 0) !important;
+}

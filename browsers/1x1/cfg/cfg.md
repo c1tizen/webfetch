@@ -1,0 +1,1 @@
+https://bulkresizephotos.com/en?output=png&preset=true&type=exact&value=1&secondaryValue=1&transparentBg=false

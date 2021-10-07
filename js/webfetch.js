@@ -287,8 +287,8 @@ if (result.cpu.architecture !== undefined) {
     jsOs.insertAdjacentHTML("beforebegin", cpuHTML);
 }
 
+// ASCII IMPORT INTO DOCUMENT
 var asciiRef = result.browser.name.toLowerCase()
-console.log("<p class='lineBrowser'>"+asciiRef+"</p>")
 if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === true) {
     var asciiPath = "browsers/" + asciiRef + ".jpg"
 } else {
@@ -296,6 +296,27 @@ if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === true) {
 }
 let bbd = new imgToAscii(asciiPath,1,0);
 bbd.displayColor();
+
+// CSS COLOR HIGHLIGHT
+function asciiHighlight() {
+    var img1x1 = new Image();
+    img1x1.crossOrigin = "anonymous";
+    img1x1.src = "./browsers/1x1/" + asciiRef + ".png";
+    var canvas = document.getElementById("asciiAnalyze");
+    var ctx = canvas.getContext('2d');
+    img1x1.onload = function() {
+    ctx.drawImage(img1x1, 0, 0);
+    img1x1.style.display = "none";
+    //canvas.style.display = "none";
+    var pixel = ctx.getImageData(0, 0, 1, 1);
+    var data = pixel.data;
+    const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
+    console.log(rgba)
+    document.documentElement.style.setProperty("--highlight", rgba);
+    };
+}
+asciiHighlight()
+
 
 let memCount = 0
 var inSpec = document.getElementById("inSpec");
@@ -318,6 +339,7 @@ document.addEventListener("keydown", (y) => {
             document.querySelector(".specs").innerHTML = helpHTML;
         } else if (termOut.substring(0,5) == "ascii") {
             asciiRef = termOut.substring(6,termOut.length);
+            asciiHighlight()
             if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === false) {
                 var asciiPath = "browsers/webfetch.jpg"
             } else {
@@ -446,13 +468,13 @@ var helpHTML =
 `
 var aboutHTML = 
 `<div class="wrapp">
-    <p class="line">About WebFetch</p>
+    <p class="line">About <span id="yellowWF"><span id="blackText">web</span>fetch</span></p>
     <p class="line"><span class="highlight">Made by: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen">c1tizen</a></p>
     <p class="line"><span class="highlight">Collaborator: </span>Webster</p>
     <p class="line"><span class="highlight">GitHub repository: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch">c1tizen/webfetch</a></p>
     <p class="line"><span class="highlight">License: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch/blob/main/LICENSE">GNU General Public License v3.0</a></p>
     <p class="line">2021 - <span id="year"></span></p>
-    type "webfetch" for main screen
+    <p class="line highlight">type "webfetch" for main screen</p>
 </div>`
 
 let palletes = ["dark","light","pale","pastel","pure"];
