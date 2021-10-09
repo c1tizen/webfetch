@@ -310,13 +310,14 @@ function asciiHighlight() {
     //canvas.style.display = "none";
     var pixel = ctx.getImageData(0, 0, 1, 1);
     var data = pixel.data;
-    const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
+    var rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
+    console.log(data[0])
     console.log(rgba)
+    // treba viac krat paste
     document.documentElement.style.setProperty("--highlight", rgba);
     };
 }
 asciiHighlight()
-
 
 let memCount = 0
 var inSpec = document.getElementById("inSpec");
@@ -366,11 +367,11 @@ document.addEventListener("keydown", (y) => {
             document.querySelector(".termPost").removeAttribute("autofocus");
             browserList()
             document.querySelector(".wrapp").focus();
-        } else if (termOut.substring(0,7) == "pallete") {
+        } else if (termOut.substring(0,7) == "palette") {
             webfetchRe();
-            palleteSplit = termOut.split(" ");
-            if (palletes.includes(palleteSplit[1])) {
-                document.querySelector("#palleteSq").setAttribute("src","./palletes/"+palleteSplit[1]+".png")
+            paletteSplit = termOut.split(" ");
+            if (palettes.includes(paletteSplit[1])) {
+                document.querySelector("#paletteSq").setAttribute("src","./palettes/"+paletteSplit[1]+".png")
                 var telleport = document.querySelector(".wrapp").innerHTML; 
             }
             termIn.value = "";
@@ -460,7 +461,7 @@ var helpHTML =
     <p class="line"><span class="highlight">webfetch - </span>runs webfetch</p>
     <p class="line"><span class="highlight">ascii [browser_name] - </span>changes ascii art</p>
     <p class="line"><span class="highlight">browsers - </span>lists ascii supported browsers</p>
-    <p class="line"><span class="highlight">pallete [dark,light,pale,pastel,pure] - </span>changes color pallete</p>
+    <p class="line"><span class="highlight">palette [dark,light,pale,pastel,pure] - </span>changes color palette</p>
     <p class="line"><span class="highlight">tech - </span>lists all used projects/dependencies</p>
     <p class="line"><span class="highlight">about - </span>shows information about this project</p>
     <p class="line"><span class="highlight">help - </span>lists all commands</p>
@@ -477,4 +478,4 @@ var aboutHTML =
     <p class="line highlight">type "webfetch" for main screen</p>
 </div>`
 
-let palletes = ["dark","light","pale","pastel","pure"];
+let palettes = ["dark","light","pale","pastel","pure"];
