@@ -299,6 +299,11 @@ bbd.displayColor();
 
 // CSS COLOR HIGHLIGHT
 function asciiHighlight() {
+    /*
+    setTimeout(function() {
+                
+    }, 0.1);
+    */
     var img1x1 = new Image();
     img1x1.crossOrigin = "anonymous";
     img1x1.src = "./browsers/1x1/" + asciiRef + ".jpg";
@@ -312,7 +317,6 @@ function asciiHighlight() {
     var data = pixel.data;
     console.log(`rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`)
     var rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
-    // treba viac krat paste
     document.documentElement.style.setProperty("--highlight", rgba);
     };
 }
@@ -339,7 +343,7 @@ document.addEventListener("keydown", (y) => {
             document.querySelector(".specs").innerHTML = helpHTML;
         } else if (termOut.substring(0,5) == "ascii") {
             asciiRef = termOut.substring(6,termOut.length);
-            asciiHighlight()
+            asciiHighlight();
             if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === false) {
                 var asciiPath = "browsers/webfetch.jpg"
             } else {
