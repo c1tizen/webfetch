@@ -301,18 +301,17 @@ bbd.displayColor();
 function asciiHighlight() {
     var img1x1 = new Image();
     img1x1.crossOrigin = "anonymous";
-    img1x1.src = "./browsers/1x1/" + asciiRef + ".png";
+    img1x1.src = "./browsers/1x1/" + asciiRef + ".jpg";
     var canvas = document.getElementById("asciiAnalyze");
     var ctx = canvas.getContext('2d');
     img1x1.onload = function() {
     ctx.drawImage(img1x1, 0, 0);
     img1x1.style.display = "none";
-    //canvas.style.display = "none";
+    canvas.style.display = "none";
     var pixel = ctx.getImageData(0, 0, 1, 1);
     var data = pixel.data;
+    console.log(`rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`)
     var rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
-    console.log(data[0])
-    console.log(rgba)
     // treba viac krat paste
     document.documentElement.style.setProperty("--highlight", rgba);
     };
