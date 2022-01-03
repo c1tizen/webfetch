@@ -331,70 +331,74 @@ termIn.value = "";
 var termMemory = []
 var telleport = document.querySelector(".wrapp").innerHTML;
 var specDel = document.querySelector(".wrapp");
-document.addEventListener("keydown", (y) => {
-    if (y.key === "Enter") {
-        memCount = 0;
-        const termOut = termIn.value.toLowerCase();
-        termMemory.unshift(termOut);
-        console.log(termMemory)
-        if (termOut.substring(0,4) == "help") {
-            document.querySelector(".wrapp").remove();
-            termIn.value = "";
-            document.querySelector(".specs").innerHTML = helpHTML;
-        } else if (termOut.substring(0,5) == "ascii") {
-            asciiRef = termOut.substring(6,termOut.length);
-            asciiHighlight();
-            if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === false) {
-                var asciiPath = "browsers/webfetch.jpg"
+memCount = 0;
+
+function inDec() {
+    document.addEventListener("keydown", (y) => {
+        if (y.key === "Enter") {  
+            const termOut = termIn.value.toLowerCase();
+            termMemory.unshift(termOut);
+            console.log(termMemory)
+            if (termOut.substring(0,4) == "help") {
+                document.querySelector(".wrapp").remove();
+                termIn.value = "";
+                document.querySelector(".specs").innerHTML = helpHTML;
+            } else if (termOut.substring(0,5) == "ascii") {
+                asciiRef = termOut.substring(6,termOut.length);
+                asciiHighlight();
+                if (browsers.includes("<p class='lineBrowser'>"+asciiRef+"</p>") === false) {
+                    var asciiPath = "browsers/webfetch.jpg"
+                } else {
+                    var asciiPath = "browsers/" + asciiRef + ".jpg"
+                }
+                let bbd = new imgToAscii(asciiPath,1,0);
+                asciiJs.innerHTML = "";
+                bbd.displayColor();
+                termIn.value = "";
+            } else if (termOut.substring(0,8) == "webfetch") {
+                webfetchRe();
+            } else if (termOut.substring(0,5) == "about") {
+                document.querySelector(".wrapp").remove();
+                termIn.value = "";
+                document.querySelector(".specs").innerHTML = aboutHTML;
+                document.getElementById("year").innerHTML = new Date().getFullYear();
+            } else if (termOut.substring(0,4) == "tech") {
+                document.querySelector(".wrapp").remove();
+                termIn.value = "";
+                document.querySelector(".specs").innerHTML = techHTML;
+            } else if (termOut.substring(0,8) == "browsers") {
+                document.querySelector(".wrapp").remove();
+                termIn.value = "";
+                document.querySelector(".termPost").removeAttribute("autofocus");
+                browserList()
+                document.querySelector(".wrapp").focus();
+            } else if (termOut.substring(0,7) == "palette") {
+                webfetchRe();
+                paletteSplit = termOut.split(" ");
+                if (palettes.includes(paletteSplit[1])) {
+                    document.querySelector("#paletteSq").setAttribute("src","./palettes/"+paletteSplit[1]+".png")
+                    var telleport = document.querySelector(".wrapp").innerHTML; 
+                }
+                termIn.value = "";
             } else {
-                var asciiPath = "browsers/" + asciiRef + ".jpg"
+                termIn.value = "";
             }
-            let bbd = new imgToAscii(asciiPath,1,0);
-            asciiJs.innerHTML = "";
-            bbd.displayColor();
-            termIn.value = "";
-        } else if (termOut.substring(0,8) == "webfetch") {
-            webfetchRe();
-        } else if (termOut.substring(0,5) == "about") {
-            document.querySelector(".wrapp").remove();
-            termIn.value = "";
-            document.querySelector(".specs").innerHTML = aboutHTML;
-            document.getElementById("year").innerHTML = new Date().getFullYear();
-        } else if (termOut.substring(0,4) == "tech") {
-            document.querySelector(".wrapp").remove();
-            termIn.value = "";
-            document.querySelector(".specs").innerHTML = techHTML;
-        } else if (termOut.substring(0,8) == "browsers") {
-            document.querySelector(".wrapp").remove();
-            termIn.value = "";
-            document.querySelector(".termPost").removeAttribute("autofocus");
-            browserList()
-            document.querySelector(".wrapp").focus();
-        } else if (termOut.substring(0,7) == "palette") {
-            webfetchRe();
-            paletteSplit = termOut.split(" ");
-            if (palettes.includes(paletteSplit[1])) {
-                document.querySelector("#paletteSq").setAttribute("src","./palettes/"+paletteSplit[1]+".png")
-                var telleport = document.querySelector(".wrapp").innerHTML; 
+        } else if (y.key === "ArrowUp") {
+            if (memCount < termMemory.length) {
+                memCount += 1
+                console.log(memCount)
+                termIn.value = termMemory[-1+memCount]
             }
-            termIn.value = "";
-        } else {
-            termIn.value = "";
+        } else if (y.key === "ArrowDown") {        
+            if (memCount > 1) {
+                memCount -= 1
+                console.log(memCount)
+                termIn.value = termMemory[-1+memCount]
+            }
         }
-    } else if (y.key === "ArrowUp") {
-        if (memCount < termMemory.length) {
-            memCount += 1
-            console.log(memCount)
-            termIn.value = termMemory[-1+memCount]
-        }
-    } else if (y.key === "ArrowDown") {        
-        if (memCount > 1) {
-            memCount -= 1
-            console.log(memCount)
-            termIn.value = termMemory[-1+memCount]
-        }
-    }
-});
+    });
+};
+inDec();
 
 let inputFocus = true
 
@@ -447,6 +451,7 @@ function browserList() {
                 }
             }}
     })
+    
 };  
 var techHTML = 
 `<div class="wrapp">
