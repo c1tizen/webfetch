@@ -1,7 +1,7 @@
 /*  
     WebFetch Project
     Made by: c1tizen
-    Collaborator: Webster 
+    Collaborator: XeronFeferon 
     2021
 */
 
@@ -465,7 +465,7 @@ var aboutHTML =
 `<div class="wrapp">
     <p class="line">About <span id="yellowWF"><span id="blackText">web</span>fetch</span></p>
     <p class="line"><span class="highlight">Made by: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen">c1tizen</a></p>
-    <p class="line"><span class="highlight">Collaborator: </span>Webster</p>
+    <p class="line"><span class="highlight">Collaborator: </span>XeronFeferon</p>
     <p class="line"><span class="highlight">GitHub repository: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch">c1tizen/webfetch</a></p>
     <p class="line"><span class="highlight">License: </span><a style="color: #fff" target="blank" href="https://github.com/c1tizen/webfetch/blob/main/LICENSE">GNU General Public License v3.0</a></p>
     <p class="line">2021 - <span id="year"></span></p>

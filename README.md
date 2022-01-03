@@ -5,7 +5,7 @@
 <a href="./LICENSE.md"><img src="https://img.shields.io/badge/license-GNU-yellow.svg"></a>
 <a href="https://github.com/c1tizen/webfetch/releases"><img src="https://img.shields.io/github/release/c1tizen/webfetch.svg"></a>
 
-<img src="https://files.catbox.moe/34r90m.png" alt="webfetch" align="right" height="250px">
+<img src="https://files.catbox.moe/rhykj6.png" alt="webfetch" align="right" height="250px">
 
 ### \[[Project Website](https://webfetch.js.org/)\]
 
