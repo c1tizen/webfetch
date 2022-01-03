@@ -305,7 +305,6 @@ function asciiHighlight() {
     canvas.style.display = "none";
     var pixel = ctx.getImageData(0, 0, 1, 1);
     var data = pixel.data;
-    console.log(`rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`)
     var rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
     document.documentElement.style.setProperty("--highlight", rgba);
     };
@@ -322,7 +321,6 @@ function funcAscii() {
     asciiJs.innerHTML = "";
     bbd.displayColor();
     termIn.value = "";
-    console.log("hello :)")
 }
 
 let memCount = 0
@@ -339,7 +337,6 @@ document.addEventListener("keydown", (y) => {
         memCount = 0;
         const termOut = termIn.value.toLowerCase();
         termMemory.unshift(termOut);
-        console.log(termMemory)
         if (termOut.substring(0,4) == "help") {
             document.querySelector(".wrapp").remove();
             termIn.value = "";
@@ -379,13 +376,11 @@ document.addEventListener("keydown", (y) => {
     } else if (y.key === "ArrowUp") {
         if (memCount < termMemory.length) {
             memCount += 1
-            console.log(memCount)
             termIn.value = termMemory[-1+memCount]
         }
     } else if (y.key === "ArrowDown") {        
         if (memCount > 1) {
             memCount -= 1
-            console.log(memCount)
             termIn.value = termMemory[-1+memCount]
         }
     }
@@ -412,7 +407,7 @@ function browserList() {
         document.querySelector(".browser-view").innerHTML += browsers[b];
     }
     var listPage = 20
-    document.querySelector(".specs").innerHTML += "<span class='highlight'>[q] - Quit, [b] - Back, [n] - Next</span>";
+    document.querySelector(".specs").innerHTML += "<span class='highlight' style='margin-right: 15px'>[q] - Quit, [b] - Back, [n] - Next</span>";
     document.querySelector(".specs").innerHTML += "</div>"
     document.addEventListener("keydown", (lister) => {
         if (document.querySelector(".termPost") !== document.activeElement) {
@@ -420,7 +415,6 @@ function browserList() {
                 webfetchRe();
             } else if (lister.key === "b" || lister.key === "B") {
                 if (listPage > 20) {
-                    console.log(listPage)
                     document.querySelector(".browser-view").innerHTML = "";
                     for (var b = 0; b < 20; b++) {
                         document.querySelector(".browser-view").innerHTML += browsers[listPage-40+b];
