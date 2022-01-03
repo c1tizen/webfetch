@@ -11,12 +11,13 @@ body {
 .display {
     border: none;
     border-radius: 10px;
-    width: auto;
+    width: 98%;
     height: 1em;
     min-height: 650px;
     max-height: 800px;
     margin: auto;
     margin-top: 20px;
+    box-shadow: 0px 5px 30px black;
 }
 
 .nav {
@@ -24,7 +25,7 @@ body {
     font-size: 24pt;
     display: flex;
     flex-direction: row;
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(14, 14, 14);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -127,8 +128,8 @@ body *::selection, body *::-moz-selection {
 
 @media only screen and (max-width: 500px) {
     #asciiPorted {
-        font-size: 9px !important;
-        line-height: 12px !important;
+        font-size: 7px !important;
+        line-height: 10px !important;
         letter-spacing: 7.5px !important;
         font-weight: 900 !important;
     }
@@ -137,6 +138,7 @@ body *::selection, body *::-moz-selection {
     }
     .specs {
         margin-top: 0px;
+        height: 50%;
     }
 }
 
