@@ -15,7 +15,7 @@ The main purpose of Webfetch is to act as visual eye-candy to display in screens
 
 By default, Webfetch displays an ASCII logo of the browser you are currently using along with the info. The logo displayed can be changed by the user via the use of simple commands.
 
-Webfetch is currently in the pre-release stage, so bugs can be expected. If you find any bugs please report them by opening up an issue.
+If you find any bugs please report them by opening up an issue.
 
 
 ### \[[License](https://github.com/c1tizen/webfetch/blob/main/LICENSE)\]
